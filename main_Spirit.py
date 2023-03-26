@@ -1,9 +1,10 @@
 """
 #Repurposed from the GLAM paper https://github.com/sawlani/GLAM
-#Authour: Zhong Li (z.li@liacs.leidenuniv.nl)
 #Date: 01 Jan 2023
 
 """
+
+root_path = r'/Users/zlifr/Desktop/OCDIGCN'
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -29,7 +30,7 @@ from DataLoader import create_loaders, MeanTrainer, GIN, DiGCN, DiGCN_IB_Sum
 ##--------------------------------------------
 
 import os, shutil
-folder = r'/Users/zlifr/Desktop/OCDIGCN/Data/Spirit/processed'
+folder = root_path +'/Data/Spirit/processed'
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
     try:
@@ -41,7 +42,7 @@ for filename in os.listdir(folder):
         print('Failed to delete %s. Reason: %s' % (file_path, e))
         
 
-folder = r'/Users/zlifr/Desktop/OCDIGCN/Data/Spirit/Raw'
+folder = root_path +'/Data/Spirit/Raw'
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
     try:
@@ -60,10 +61,10 @@ import shutil
 import os
  
 # path to source directory
-src_dir = r'/Users/zlifr/Desktop/OCDIGCN/Data/Spirit/Graph/Raw/'
+src_dir = root_path +'/Data/Spirit/Graph/Raw/'
  
 # path to destination directory
-dest_dir = r'/Users/zlifr/Desktop/OCDIGCN/Data/Spirit/Raw/'
+dest_dir = root_path +'/Data/Spirit/Raw/'
  
 # getting all the files in the source directory
 my_files = os.listdir(src_dir)

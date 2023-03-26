@@ -3,11 +3,11 @@
 """
 Created on Fri Dec 16 14:31:09 2022
 
-@author: zlifr
-
 Generate attributed, directed and edge-weighted graphs from logs, 
 and convert them into TUDataset format (but with directed version)
 """
+
+root_path = r'/Users/zlifr/Desktop/OCDIGCN'
 
 # =============================================================================
 # PreStep 1: Load parsered dataset BGL
@@ -20,7 +20,7 @@ import networkx as nx
 
 MyDataName = "HDFS"
 
-df = pd.read_csv('/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/HDFS.log_structured.csv', sep=',')
+df = pd.read_csv(root_path + '/Data/HDFS/HDFS.log_structured.csv', sep=',')
 df['GroupId'] = df['ParameterList'].str.extract('(blk\_[-]?\d+)', expand=False)
 
 raw_df = df[["LineId","EventId","GroupId", "EventTemplate"]] 
@@ -33,7 +33,7 @@ import json
 import pandas as pd 
 
 ##load embedding vec from a jason file
-with open('/Users/zlifr/Desktop/OCDIGCN/Data/Gloves/Results/EmbeddingDict_HDFS.json', 'r') as fp:
+with open(root_path + '/Data/Gloves/Results/EmbeddingDict_HDFS.json', 'r') as fp:
     embedding_dict = json.load(fp)
     
 embedding_df = pd.DataFrame.from_dict(embedding_dict)
@@ -81,7 +81,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
     # print("\n-----df_A in GraphConstruction()-------")
     # print(df_A)
     
-    fp_A = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/TempRaw/" + MyDataName + "_A.txt"
+    fp_A = root_path + "/Data/HDFS/Graph/TempRaw/" + MyDataName + "_A.txt"
     np.savetxt(fp_A, df_A.values, fmt='%i', delimiter=', ')
 
                
@@ -90,7 +90,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
     # =============================================================================
     df_edge_weight = pd.DataFrame(columns=["edge_weight"])
     df_edge_weight["edge_weight"] = list(A.data)
-    fp_edge_weight = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/TempRaw/" + MyDataName + "_edge_attributes.txt"
+    fp_edge_weight = root_path + "/Data/HDFS/Graph/TempRaw/" + MyDataName + "_edge_attributes.txt"
     np.savetxt(fp_edge_weight, df_edge_weight.values, fmt='%i', delimiter=', ')
     
     
@@ -99,7 +99,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
     # =============================================================================
     df_graph_indicator = pd.DataFrame(columns=["indicator"])
     df_graph_indicator["indicator"] = [graph_count_index+1]*len(new_node_accum)
-    fp_graph_indicator = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/TempRaw/" + MyDataName + "_graph_indicator.txt"
+    fp_graph_indicator = root_path + "/Data/HDFS/Graph/TempRaw/" + MyDataName + "_graph_indicator.txt"
     np.savetxt(fp_graph_indicator, df_graph_indicator.values, fmt='%i', delimiter=', ')  
     
     
@@ -107,7 +107,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
     # 4. Graph-labels Matrix: done, by modifing the train/test split code in GLAM 
     # =============================================================================
     ##use the anomaly_label.csv file to generate this matrix
-    df_label = pd.read_csv('/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/anomaly_label.csv', sep=',')
+    df_label = pd.read_csv(root_path + '/Data/HDFS/anomaly_label.csv', sep=',')
     di_replace = {"Normal": 0, "Anomaly": 1}
     df_label = df_label.replace({"Label": di_replace})
     label_value = df_label.iloc[graph_loc_index]['Label']
@@ -117,7 +117,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
     df_graph_labels = pd.DataFrame(columns=["labels"])
     # df_graph_labels["labels"] = [label_value]*len(list(A.data))
     df_graph_labels["labels"] = [label_value]
-    fp_graph_labels = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/TempRaw/" + MyDataName + "_graph_labels.txt"
+    fp_graph_labels = root_path + "/Data/HDFS/Graph/TempRaw/" + MyDataName + "_graph_labels.txt"
     np.savetxt(fp_graph_labels, df_graph_labels.values, fmt='%i', delimiter=', ') 
     
     
@@ -141,7 +141,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
         
     df_node_attributes = pd.DataFrame(node_attr_list)
                 
-    fp_node_attributes = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/TempRaw/" + MyDataName + "_node_attributes.txt"
+    fp_node_attributes = root_path + "/Data/HDFS/Graph/TempRaw/" + MyDataName + "_node_attributes.txt"
     np.savetxt(fp_node_attributes, df_node_attributes.values,fmt='%f', delimiter=', ') 
 
 
@@ -389,7 +389,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
     # =============================================================================
     # 1. Adj Matrix
     # =============================================================================
-    fp_A = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_A.txt"
+    fp_A = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_A.txt"
     df_A = pd.DataFrame(ReadGraph.edge_index.numpy()).T
     df_A = df_A  + my_node_accum
     # print("\n-----df_A in ConcatGraphs()-------")
@@ -400,7 +400,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
     # =============================================================================
     # 2. Edge-weight Matrix
     # =============================================================================
-    fp_edge_weight = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_edge_attributes.txt"
+    fp_edge_weight = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_edge_attributes.txt"
     df_edge_weight = pd.DataFrame(ReadGraph.edge_attr.numpy())
     with open(fp_edge_weight, "ab") as f:
         np.savetxt(f, df_edge_weight.values, fmt='%f', delimiter=', ')
@@ -411,7 +411,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
     # =============================================================================
     df_graph_indicator = pd.DataFrame(columns=["indicator"])    
     df_graph_indicator["indicator"] = [graph_count_index+1]*len(new_node_accum)
-    fp_graph_indicator = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_graph_indicator.txt"
+    fp_graph_indicator = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_graph_indicator.txt"
     with open(fp_graph_indicator, "ab") as f:
         np.savetxt(f, df_graph_indicator.values, fmt='%i', delimiter=', ')  
     
@@ -421,7 +421,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
     # =============================================================================
     ##use the anomaly_label.csv file to generate this matrix
     
-    fp_graph_labels = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_graph_labels.txt"
+    fp_graph_labels = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_graph_labels.txt"
     df_graph_labels = pd.DataFrame([ReadGraph.y.numpy()])
     with open(fp_graph_labels, "ab") as f: 
         np.savetxt(f, df_graph_labels.values, fmt='%i', delimiter=', ') 
@@ -431,7 +431,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
     # 5. Node-attributes Matrix
     # =============================================================================
 
-    fp_node_attributes = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_node_attributes.txt"
+    fp_node_attributes = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_node_attributes.txt"
     
     df_node_attributes = pd.DataFrame(ReadGraph.x.numpy())
     
@@ -443,7 +443,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
         # =============================================================================
         # 6. Second-order Adj Matrix
         # =============================================================================
-        fp_A2 = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_A2.txt"
+        fp_A2 = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_A2.txt"
         df_A2 = pd.DataFrame(ReadGraph.edge_index2.numpy()).T
         df_A2 = df_A2  + my_node_accum
         with open(fp_A2, "ab") as f:
@@ -452,7 +452,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
         # =============================================================================
         # 7. Second-order Edge-weight Matrix
         # =============================================================================
-        fp_edge_weight2 = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw/" + MyDataName + "_edge_attributes2.txt"
+        fp_edge_weight2 = root_path + "/Data/HDFS/Graph/Raw/" + MyDataName + "_edge_attributes2.txt"
         df_edge_weight2 = pd.DataFrame(ReadGraph.edge_attr2.numpy())
         with open(fp_edge_weight2, "ab") as f:
             np.savetxt(f, df_edge_weight2.values, fmt='%f', delimiter=', ')
@@ -469,7 +469,7 @@ def ConcatGraphs(ReadGraph, graph_count_index, my_node_accum, new_node_accum, ad
 ##--------------------------------------------
 
 import os, shutil
-folder = r'/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/Raw'
+folder = root_path + '/Data/HDFS/Graph/Raw'
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
     try:
@@ -486,7 +486,7 @@ for filename in os.listdir(folder):
 ##--------------------------------------------
 ##Step 4.2. run experiments
 ##--------------------------------------------
-all_event_df = pd.read_csv('/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/anomaly_label.csv', sep=',')
+all_event_df = pd.read_csv(root_path + '/Data/HDFS/anomaly_label.csv', sep=',')
 
 group_to_check = list(all_event_df["BlockId"])
 
@@ -539,7 +539,7 @@ for group_name in tqdm(list_group):
                       new_node_accum = new_event_list)
     
     ##after generating each graph, we get its appr adj matrix accordingly
-    MyReadGraph,empty_index = read_tu_data(folder = r"/Users/zlifr/Desktop/OCDIGCN/Data/HDFS/Graph/TempRaw",
+    MyReadGraph,empty_index = read_tu_data(folder = root_path + "/Data/HDFS/Graph/TempRaw",
                                            prefix = MyDataName,
                                            adj_type = 'ib')
     

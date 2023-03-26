@@ -3,7 +3,6 @@
 """
 Created on Mon Jan  9 16:11:52 2023
 
-@author: zlifr
 """
 
 # =============================================================================
@@ -339,13 +338,6 @@ def load_data(data_name,
         
         dataset_raw = ParseDataset(root=DATA_PATH, name=data_name)
 
-    # print("_______________important info 4_______________")
-    # print(dataset_raw[0].x)
-    # print(dataset_raw[0].edge_index)
-    # print(dataset_raw[0].edge_index2)
-    # print(dataset_raw[0].edge_attr)
-    # print(dataset_raw[0].edge_attr2) ##Zhong: here is the problem
-    # print("____________________________________________")
     dataset = dataset_raw
     
     dataset_list = [data for data in dataset]
