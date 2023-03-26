@@ -6,7 +6,7 @@ Steps to use our code:
 Please check you have the specified environment, which is described in requirements.txt
 
 ## Step1: Download Dataset
-Please download dataset from this link: [zenodo](https://doi.org/10.5281/zenodo.7771548), and put it under the root_path (namely where all python scripts are located). 
+Please download dataset from this link: [zenodo](https://doi.org/10.5281/zenodo.7771548), and put them under the root_path (namely where all python scripts are located) with a name "Data". Particularly, if the downloaded zip file has a name other than "Data" after unziping it, you should change it to "Data".  
 
 ## Step2: Replace root_path
 
