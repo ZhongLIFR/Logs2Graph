@@ -2,6 +2,9 @@
 
 Steps to use our code:
 
+## Step0: Check requirements
+Please check you have the specified environment, which is described in requirements.txt
+
 ## Step1: Download Dataset
 Please download dataset from this link: https://doi.org/10.5281/zenodo.7771388, and put it under the root_path (namely where all python scripts are located). 
 
