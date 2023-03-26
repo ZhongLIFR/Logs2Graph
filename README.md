@@ -10,5 +10,5 @@ Please download dataset from this link: https://doi.org/10.5281/zenodo.7771388 a
 
 
 
-##References
+## References
 Our code is developed based on [GLAM](https://github.com/sawlani/GLAM) and [DiGCN](https://github.com/flyingtango/DiGCN)
