@@ -3,7 +3,7 @@
 Steps to use our code:
 
 ## Step1: Download Dataset
-Please download dataset from this link: https://doi.org/10.5281/zenodo.7771388, and put it under the root_path 
+Please download dataset from this link: https://doi.org/10.5281/zenodo.7771388, and put it under the root_path (namely where all python scripts are located). 
 
 ## Step2: Replace root_path
 
