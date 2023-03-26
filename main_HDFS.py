@@ -5,7 +5,7 @@ df['GroupId'] = df['ParameterList'].str.extract('(blk\_[-]?\d+)', expand=False)
 
 """
 
-root_path = r'/Users/zlifr/Desktop/OCDIGCN'
+root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
 
 import warnings
 warnings.filterwarnings("ignore")

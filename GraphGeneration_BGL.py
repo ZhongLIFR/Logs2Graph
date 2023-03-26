@@ -8,7 +8,7 @@ and convert them into TUDataset format (but with directed version)
 
 """
 
-root_path = r'/Users/zlifr/Desktop/OCDIGCN'
+root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
 
 # =============================================================================
 # PreStep 1: Load parsered dataset BGL
