@@ -13,7 +13,7 @@ root_path = r'/Users/YourName/Desktop/OCDIGCN'
 ```
 
 ## Step3: Testing
-1. for testing Logs2Graph on HDFS: run GraphGeneration_HDFS.py first, and then run main_HDFS.py.
+1. for testing Logs2Graph on HDFS: run GraphGeneration_HDFS.py, and then run main_HDFS.py.
 
 
 ## References
