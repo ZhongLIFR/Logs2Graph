@@ -329,42 +329,5 @@ nx.draw(g, with_labels = True)
 
 
 
-# =============================================================================
-# with shuffle = True, 10000 samples
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 400, AP: 0.990, ROC-AUC: 0.998
-#     At the end, at epoch 400, AP: 0.990, ROC-AUC: 0.998
-
-# =============================================================================
-# with shuffle = True, 10000 samples with 0.13 anomalies
-# random.seed(10), 
-# random.seed(20), 
-# random.seed(30), 
-# random.seed(40),
-# random.seed(50)
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 400, AP: 0.990, ROC-AUC: 0.998
-#     At the end, at epoch 400, AP: 0.990, ROC-AUC: 0.998
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 90, AP: 0.994, ROC-AUC: 0.999
-#     At the end, at epoch 100, AP: 0.994, ROC-AUC: 0.998
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 100, AP: 0.989, ROC-AUC: 0.998
-#     At the end, at epoch 100, AP: 0.989, ROC-AUC: 0.998
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 93, AP: 1.000, ROC-AUC: 1.000
-#     At the end, at epoch 100, AP: 0.999, ROC-AUC: 1.000
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 85, AP: 0.990, ROC-AUC: 0.999
-#     At the end, at epoch 100, AP: 0.990, ROC-AUC: 0.999
-
 
 

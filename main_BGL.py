@@ -328,46 +328,6 @@ g = torch_geometric.utils.to_networkx(test1, to_undirected=False)
 nx.draw(g, with_labels = True)
 
 
-# =============================================================================
-# with shuffle = True, 10000 samples
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 79, AP: 0.97, ROC-AUC: 0.93
-#     At the end, at epoch 100, AP: 0.96, ROC-AUC: 0.91
-
-
-
-# =============================================================================
-# with shuffle = True, 10000 samples with 0.03 anomalies
-# random.seed(0), 
-# random.seed(10), 
-# random.seed(20), 
-# random.seed(30), 
-# random.seed(40),
-# random.seed(50)
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 79, AP: 0.967, ROC-AUC: 0.935
-#     At the end, at epoch 100, AP: 0.959, ROC-AUC: 0.915
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 60, AP: 0.967, ROC-AUC: 0.937
-#     At the end, at epoch 100, AP: 0.968, ROC-AUC: 0.939
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 43, AP: 0.944, ROC-AUC: 0.905
-#     At the end, at epoch 100, AP: 0.790, ROC-AUC: 0.531
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 91, AP: 0.963, ROC-AUC: 0.928
-#     At the end, at epoch 100, AP: 0.962, ROC-AUC: 0.927
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 94, AP: 0.964, ROC-AUC: 0.931
-#     At the end, at epoch 100, AP: 0.962, ROC-AUC: 0.923
-
 
 
 

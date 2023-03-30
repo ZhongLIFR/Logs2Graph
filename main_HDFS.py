@@ -212,7 +212,7 @@ parser.add_argument('--data_seed', type=int, default=421,
 parser.add_argument('--device', type=int, default=0,
                     help='which gpu to use if any (default: 0)')
 
-parser.add_argument('--epochs', type=int, default=1, ##150 is good for HDFS
+parser.add_argument('--epochs', type=int, default=150, ##150 is good for HDFS
                     help='number of epochs to train (default: 150)')
 parser.add_argument('--hidden_dim', type=int, default=128,
                     help='number of hidden units (default: 64)')
@@ -324,103 +324,3 @@ import networkx as nx
 import torch_geometric
 g = torch_geometric.utils.to_networkx(test1, to_undirected=False)
 nx.draw(g, with_labels = True)
-
-##no anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 200, AP: 0.91, ROC-AUC: 0.92
-#     At the end, at epoch 200, AP: 0.91, ROC-AUC: 0.92
-
-
-##1% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 199, AP: 0.89, ROC-AUC: 0.91
-#     At the end, at epoch 200, AP: 0.89, ROC-AUC: 0.91
-
-##2% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 200, AP: 0.87, ROC-AUC: 0.90
-#     At the end, at epoch 200, AP: 0.87, ROC-AUC: 0.90
-
-##3% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 199, AP: 0.84, ROC-AUC: 0.88
-#     At the end, at epoch 200, AP: 0.84, ROC-AUC: 0.88
-
-##5% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 200, AP: 0.74, ROC-AUC: 0.84
-#     At the end, at epoch 200, AP: 0.74, ROC-AUC: 0.84
-
-# =============================================================================
-# with shuffle = True, 10000 samples with 0.03 anomalies
-# random.seed(0), 
-# random.seed(10), 
-# random.seed(20), 
-# random.seed(30), 
-# random.seed(40),
-# random.seed(50)
-# =============================================================================
-
-# ---------epoch test end------------- -->this one to test
-#       Min SVDD, at epoch 196, AP: 0.808, ROC-AUC: 0.890
-#     At the end, at epoch 200, AP: 0.808, ROC-AUC: 0.890
-    
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 198, AP: 0.837, ROC-AUC: 0.910
-#     At the end, at epoch 200, AP: 0.836, ROC-AUC: 0.910
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 190, AP: 0.843, ROC-AUC: 0.916
-#     At the end, at epoch 200, AP: 0.842, ROC-AUC: 0.913
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 190, AP: 0.859, ROC-AUC: 0.931
-#     At the end, at epoch 200, AP: 0.860, ROC-AUC: 0.932
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 196, AP: 0.834, ROC-AUC: 0.909
-#     At the end, at epoch 200, AP: 0.835, ROC-AUC: 0.909
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 196, AP: 0.812, ROC-AUC: 0.880
-#     At the end, at epoch 200, AP: 0.812, ROC-AUC: 0.880
-
-
-# =============================================================================
-# batch size = 200, lr = 0.001
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 200, AP: 0.808, ROC-AUC: 0.889
-#     At the end, at epoch 200, AP: 0.808, ROC-AUC: 0.889
-
-
-# =============================================================================
-# batch size = 200, lr = 0.01
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 197, AP: 0.825, ROC-AUC: 0.895
-#     At the end, at epoch 200, AP: 0.824, ROC-AUC: 0.890
-
-
-# =============================================================================
-# batch size = 4000, lr = 0.01
-# =============================================================================
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 200, AP: 0.805, ROC-AUC: 0.889
-#     At the end, at epoch 200, AP: 0.805, ROC-AUC: 0.889
-
-# =============================================================================
-# batch size = 32, lr = 0.0001
-# =============================================================================
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 200, AP: 0.806, ROC-AUC: 0.889
-#     At the end, at epoch 200, AP: 0.806, ROC-AUC: 0.889
-
-# =============================================================================
-# batch size = 32, lr = 0.01
-# =============================================================================
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 199, AP: 0.836, ROC-AUC: 0.894
-#     At the end, at epoch 200, AP: 0.834, ROC-AUC: 0.895

@@ -213,7 +213,7 @@ parser.add_argument('--data_seed', type=int, default=421,
 parser.add_argument('--device', type=int, default=0,
                     help='which gpu to use if any (default: 0)')
 
-parser.add_argument('--epochs', type=int, default=500, ##150 is good for Spirit
+parser.add_argument('--epochs', type=int, default=500, ##500 is good for Spirit
                     help='number of epochs to train (default: 150)')
 parser.add_argument('--hidden_dim', type=int, default=128,
                     help='number of hidden units (default: 64)')
@@ -326,54 +326,3 @@ import torch_geometric
 g = torch_geometric.utils.to_networkx(test1, to_undirected=False)
 nx.draw(g, with_labels = True)
 
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.94, ROC-AUC: 0.97
-#     At the end, at epoch 150, AP: 0.94, ROC-AUC: 0.97
-
-
-
-##1% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.76, ROC-AUC: 0.90
-#     At the end, at epoch 150, AP: 0.76, ROC-AUC: 0.90
-
-##2% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.64, ROC-AUC: 0.82
-#     At the end, at epoch 150, AP: 0.64, ROC-AUC: 0.82
-
-##3% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.54, ROC-AUC: 0.72
-#     At the end, at epoch 150, AP: 0.54, ROC-AUC: 0.72
-
-##5% anomalies
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.41, ROC-AUC: 0.57
-#     At the end, at epoch 150, AP: 0.41, ROC-AUC: 0.57
-
-
-
-##2% anomalies and 3000 epochs
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 3000, AP: 0.65, ROC-AUC: 0.82
-#     At the end, at epoch 3000, AP: 0.65, ROC-AUC: 0.82
-
-
-# =============================================================================
-# with shuffle = True, all samples, we can train it with more epoches
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.982, ROC-AUC: 0.977
-#     At the end, at epoch 150, AP: 0.982, ROC-AUC: 0.977
-
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 300, AP: 0.989, ROC-AUC: 0.987
-#     At the end, at epoch 300, AP: 0.989, ROC-AUC: 0.987
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 500, AP: 0.992, ROC-AUC: 0.992
-#     At the end, at epoch 500, AP: 0.992, ROC-AUC: 0.992

@@ -212,7 +212,7 @@ parser.add_argument('--data_seed', type=int, default=421,
 parser.add_argument('--device', type=int, default=0,
                     help='which gpu to use if any (default: 0)')
 
-parser.add_argument('--epochs', type=int, default=300, ##150 is good for Hadoop
+parser.add_argument('--epochs', type=int, default=300, ##300 is good for Hadoop
                     help='number of epochs to train (default: 150)')
 parser.add_argument('--hidden_dim', type=int, default=128,
                     help='number of hidden units (default: 64)')
@@ -326,13 +326,6 @@ g = torch_geometric.utils.to_networkx(test1, to_undirected=False)
 nx.draw(g, with_labels = True)
 
 
-# =============================================================================
-# with shuffle = True, all samples
-# =============================================================================
-
-# ---------epoch test end-------------
-#       Min SVDD, at epoch 150, AP: 0.94, ROC-AUC: 0.58
-#     At the end, at epoch 150, AP: 0.94, ROC-AUC: 0.58
 
 
 
