@@ -6,8 +6,8 @@ Created on Fri Dec 16 14:31:09 2022
 Generate attributed, directed and edge-weighted graphs from logs, 
 and convert them into TUDataset format (but with directed version)
 """
-
-root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
+# the absolute path of the Logs2Graph project
+root_path = r'/home/SteveJobs/Logs2Graph'
 
 # =============================================================================
 # PreStep 1: Load parsered dataset BGL
@@ -494,31 +494,41 @@ group_to_check = list(all_event_df["BlockId"])
 
 
 ##define a function to draw samples randomly but control the proportion
-def draw_sample(num_samples, anomaly_per):
-    
-    ##we should write a function to draw graphs which ensures that anomalies are only a small part
-    anomaly_index_list = all_event_df.index[all_event_df['Label'] == "Anomaly"].tolist()
-    normal_index_list = all_event_df.index[all_event_df['Label'] == "Normal"].tolist()
-    
-    import random
-    random.seed(0)
-    # random.seed(10) ##we change the random seed here
-    # random.seed(20) 
-    # random.seed(30) 
-    # random.seed(40) 
-    # random.seed(50) 
+def draw_sample(num_samples, anomaly_per, draw_code):
+    if draw_code == 1:     
+        ##we should write a function to draw graphs which ensures that anomalies are only a small part
+        anomaly_index_list = all_event_df.index[all_event_df['Label'] == "Anomaly"].tolist()
+        normal_index_list = all_event_df.index[all_event_df['Label'] == "Normal"].tolist()
+        
+        import random
+        random.seed(0)
+        # random.seed(10) ##we change the random seed here
+        # random.seed(20) 
+        # random.seed(30) 
+        # random.seed(40) 
+        # random.seed(50) 
 
-    anomal_drawn = random.sample(anomaly_index_list, int(num_samples*anomaly_per))
-    normal_drawn = random.sample(normal_index_list, int(num_samples*(1-anomaly_per)))
-    sample_drawn = anomal_drawn + normal_drawn
-    list_group = [group_to_check[my_idx] for my_idx in sample_drawn]
-    
-    return list_group, sample_drawn
+        anomal_drawn = random.sample(anomaly_index_list, int(num_samples*anomaly_per))
+        normal_drawn = random.sample(normal_index_list, int(num_samples*(1-anomaly_per)))
+        sample_drawn = anomal_drawn + normal_drawn
+        list_group = [group_to_check[my_idx] for my_idx in sample_drawn]
+        
+        return list_group, sample_drawn
+    else:
+        ##we should write a function to draw graphs which ensures that anomalies are only a small part
+        anomaly_index_list = all_event_df.index[all_event_df['Label'] == "Anomaly"].tolist()
+        normal_index_list = all_event_df.index[all_event_df['Label'] == "Normal"].tolist()
+        
+        all_samples = anomaly_index_list + normal_index_list
+        list_group = [group_to_check[my_idx] for my_idx in all_samples]
+        
+        return list_group, all_samples
 
 
 num_graphs_to_test = 10000
 anomaly_perentage = 0.03
-list_group, list_group_idx = draw_sample(num_graphs_to_test, anomaly_perentage)
+draw_code_val = 1
+list_group, list_group_idx = draw_sample(num_graphs_to_test, anomaly_perentage,draw_code_val)
 
 
 all_event_list = []

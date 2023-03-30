@@ -7,8 +7,8 @@ Generate attributed, directed and edge-weighted graphs from logs,
 and convert them into TUDataset format (but with directed version)
 
 """
-
-root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
+# the absolute path of the Logs2Graph project
+root_path = r'/home/SteveJobs/Logs2Graph'
 
 # =============================================================================
 # PreStep 1: Load parsered dataset BGL
@@ -497,7 +497,7 @@ group_to_check = list(all_event_df["BlockId"])
 ##define a function to draw samples randomly but control the proportion
 def draw_sample(num_samples, anomaly_per, draw_code):
     
-    if draw_code_val == 1:        
+    if draw_code == 1:        
         ##we should write a function to draw graphs which ensures that anomalies are only a small part
         anomaly_index_list = all_event_df.index[all_event_df['Label'] == "Anomaly"].tolist()
         normal_index_list = all_event_df.index[all_event_df['Label'] == "Normal"].tolist()

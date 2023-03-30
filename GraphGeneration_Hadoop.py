@@ -6,8 +6,8 @@ Created on Fri Dec 16 14:31:09 2022
 Generate attributed, directed and edge-weighted graphs from logs, 
 and convert them into TUDataset format (but with directed version)
 """
-
-root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
+# the absolute path of the Logs2Graph project
+root_path = r'/home/SteveJobs/Logs2Graph'
 
 
 # =============================================================================
@@ -100,7 +100,7 @@ def GraphConstruction(my_example_df, graph_count_index, graph_loc_index, my_node
     # =============================================================================
     df_graph_indicator = pd.DataFrame(columns=["indicator"])
     df_graph_indicator["indicator"] = [graph_count_index+1]*len(new_node_accum)
-    fp_graph_indicator = root_path + "Data/Hadoop/Graph/TempRaw/" + MyDataName + "_graph_indicator.txt"
+    fp_graph_indicator = root_path + "/Data/Hadoop/Graph/TempRaw/" + MyDataName + "_graph_indicator.txt"
     np.savetxt(fp_graph_indicator, df_graph_indicator.values, fmt='%i', delimiter=', ')  
     
     
@@ -497,7 +497,7 @@ group_to_check = list(all_event_df["BlockId"])
 ##define a function to draw samples randomly but control the proportion
 def draw_sample(num_samples, anomaly_per, draw_code):
     
-    if draw_code_val == 1:        
+    if draw_code == 1:        
         ##we should write a function to draw graphs which ensures that anomalies are only a small part
         anomaly_index_list = all_event_df.index[all_event_df['Label'] == "Anomaly"].tolist()
         normal_index_list = all_event_df.index[all_event_df['Label'] == "Normal"].tolist()
