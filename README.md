@@ -1,6 +1,6 @@
 # Logs2Graph
 
-This repository contains the code for the manuscript "Unsupervised Log Anomaly Detection using One-Class Digraph Inception Convolutional", which has been submitted to ECML/PKDD 2023.
+This repository contains the code for the manuscript "Unsupervised Log Anomaly Detection using One-Class Digraph Inception Convolutional Networks", which has been submitted to ECML/PKDD 2023.
 
 Readers can follow these steps to use our code:
 
