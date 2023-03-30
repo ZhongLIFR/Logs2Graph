@@ -249,7 +249,7 @@ class ParseDataset(InMemoryDataset):
 
     @property
     def raw_dir(self) -> str:
-        name = f'raw{"_cleaned" if self.cleaned else ""}'
+        name = f'Raw{"_cleaned" if self.cleaned else ""}'
         return osp.join(self.root, self.name, name)
 
     @property
@@ -331,12 +331,14 @@ def load_data(data_name,
     torch.manual_seed(seed)
     
     ##get raw dataset if it already exists
-    print(DATA_PATH + "/" + data_name + "/raw/")
-    if os.path.exists(DATA_PATH + "/" + data_name + "/raw/"):
+    print(DATA_PATH + "/" + data_name + "/Raw/")
+    if os.path.exists(DATA_PATH + "/" + data_name + "/Raw/"):
         
         print("++++++++find dataset++++++++++++")
         
         dataset_raw = ParseDataset(root=DATA_PATH, name=data_name)
+    else:
+        raise NotImplementedError
 
     dataset = dataset_raw
     
