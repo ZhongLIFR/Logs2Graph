@@ -2,8 +2,8 @@
 #Repurposed from the GLAM paper https://github.com/sawlani/GLAM
 #Date: 01 Jan 2023
 """
-
-root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
+# the absolute path of the Logs2Graph project
+root_path = r'/home/SteveJobs/Logs2Graph'
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -179,8 +179,8 @@ def run_experiment(
 
     best_svdd_idx = np.argmin([e.svdd_loss for e in epochinfo[1:]])+1
     
-    print("      Min SVDD, at epoch %d, AP: %.2f, ROC-AUC: %.2f" % (best_svdd_idx, epochinfo[best_svdd_idx].ap, epochinfo[best_svdd_idx].roc_auc))
-    print("    At the end, at epoch %d, AP: %.2f, ROC-AUC: %.2f" % (args.epochs, epochinfo[-1].ap, epochinfo[-1].roc_auc))
+    print("      Min SVDD, at epoch %d, AP: %.3f, ROC-AUC: %.3f" % (best_svdd_idx, epochinfo[best_svdd_idx].ap, epochinfo[best_svdd_idx].roc_auc))
+    print("    At the end, at epoch %d, AP: %.3f, ROC-AUC: %.3f" % (args.epochs, epochinfo[-1].ap, epochinfo[-1].roc_auc))
 
     ##----record the best epoch's information----
 

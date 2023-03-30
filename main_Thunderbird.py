@@ -3,8 +3,8 @@
 #Date: 01 Jan 2023
 
 """
-
-root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
+# the absolute path of the Logs2Graph project
+root_path = r'/home/SteveJobs/Logs2Graph'
 
 
 import warnings
@@ -214,7 +214,7 @@ parser.add_argument('--data_seed', type=int, default=421,
 parser.add_argument('--device', type=int, default=0,
                     help='which gpu to use if any (default: 0)')
 
-parser.add_argument('--epochs', type=int, default=1, ##150 is good for Thunderbird
+parser.add_argument('--epochs', type=int, default=150, ##150 is good for Thunderbird
                     help='number of epochs to train (default: 150)')
 parser.add_argument('--hidden_dim', type=int, default=128,
                     help='number of hidden units (default: 64)')

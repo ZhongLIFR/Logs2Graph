@@ -3,8 +3,8 @@
 #Date: 01 Jan 2023
 
 """
-
-root_path = r'/Users/zlifr/Documents/GitHub/Logs2Graph'
+# the absolute path of the Logs2Graph project
+root_path = r'/home/SteveJobs/Logs2Graph'
 
 
 import warnings
