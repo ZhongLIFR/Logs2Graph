@@ -1,6 +1,6 @@
 # Logs2Graph
 
-This repository contains the code for the manuscript "Unsupervised Log Anomaly Detection using One-Class Digraph Inception Convolutional Networks", which has been submitted to ECML/PKDD 2023.
+This repository contains the code for the manuscript "Explainable Unsupervised Log Anomaly Detection via One-Class Graph Neural Networks", which has been submitted to ICSE 2024.
 
 Readers can follow these steps to use our code:
 
@@ -25,4 +25,4 @@ root_path = r'/Users/YourName/Desktop/Logs2Graph'
 5. for testing Logs2Graph on Thunderbird: run GraphGeneration_Thunderbird.py, and then run main_Thunderbird.py.
 
 ## References
-Our code is developed based on [GLAM](https://github.com/sawlani/GLAM) and [DiGCN](https://github.com/flyingtango/DiGCN). Note that none of the authors of Logs2Graph participated in these two projects.
+Our code is developed based on [GLAM](https://github.com/sawlani/GLAM) and [DiGCN](https://github.com/flyingtango/DiGCN).
