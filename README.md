@@ -1,6 +1,6 @@
 # Logs2Graphs
 
-This repository contains the code for the manuscript "Explainable Unsupervised Log Anomaly Detection via One-Class Graph Neural Networks", which has been submitted to ICSE 2024.
+This repository contains the lab code for the manuscript "Explainable Unsupervised Log Anomaly Detection via One-Class Graph Neural Networks", which has been submitted to Information Sciences.
 
 Readers can follow these steps to use our code:
 
