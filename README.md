@@ -1,6 +1,6 @@
 # Logs2Graphs
 
-This repository contains the lab code for the manuscript "Graph Neural Networks based Log Anomaly Detection and Explanation", which has been submitted to the Information Sciences journal.
+This repository contains the lab code for the manuscript "Graph Neural Networks based Log Anomaly Detection and Explanation", which has been accepted by ICSE'24 poster track (short paper). The full version is under review with the EAAI journal.
 
 Readers can follow these steps to use our code:
 
